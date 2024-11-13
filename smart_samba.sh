@@ -60,7 +60,7 @@ smart_samba_mount() {
             
             # Magic is umount in screen session to smooth the process
             # screen -dmS umount_samba bash -c "sudo umount -f -l $mount_point"
-            screen -dmS bash -c "sudo umount -f -l $mount_point"
+            screen -dmS um_session bash -c "sudo umount -f -l $mount_point"
             
             # Clean up
             rm -f "$lock_file"
@@ -89,8 +89,8 @@ smart_samba_mount() {
             log "Samba share $remote_samba_share was not connected to $mount_point. (filtered, preventive umount)"
             
             # Magic is umount in screen session to smooth the process
-            # screen -dmS umount_samba bash -c "sudo umount -f -l $mount_point" #puvodni udajne spatne
-            screen -dmS bash -c "sudo umount -f -l $mount_point"
+            screen -dmS um_session bash -c "sudo umount -f -l $mount_point"
+            
         fi
     fi
 
